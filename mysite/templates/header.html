@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<header id="header" class="skel-layers-fixed">
+	<h1><a href="/">Easy Returns</a></h1>
+	<nav id="nav">
+		<ul>
+			<li><a href="/">Home</a></li>
+
+			<li><a href="{% url 'contact'%}">Contact Us</a></li>
+			<li><a href="{% url 'about'%}">About</a></li>
+
+			{% if request.user.is_authenticated %}
+			<li><a href="{% url 'dash'%}">Dashboard</a></li>
+			<li><a href="{% url 'account_logout' %}" class="button">Logout</a></li>
+			{% else %}
+			<li><a href="{% url 'account_login' %}" class="button">Login</a></li>
+			<li><a href="{% url 'account_signup' %}" class="button">SignUp</a></li>
+
+			{% endif %}
+
+
+		</ul>
+	</nav>
+</header>
